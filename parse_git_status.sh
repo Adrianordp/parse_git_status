@@ -17,7 +17,7 @@ parse_git(){
         echo -ne $YELLOW\($RESET$EXCLAMATION
         BRANCH_COLOR=$YELLOW$BRANCH_NAME$RESET
         echo -ne $BRANCH_COLOR
-        GIT_AHEAD=$(echo "$GIT_STATUS" | sed -nE 's/.* \[ahead (\d+)\]/\1/p')
+        GIT_AHEAD=$(echo "$GIT_STATUS" | sed -nE 's/.* \[ahead ([0-9]+)\]/\1/p')
         if [ $(echo "$GIT_STATUS" | sed -nE 's/^\?\? //p' | tail -n1) ]; then
             echo -ne " $RED"u"$RESET"
         fi
